@@ -57,16 +57,29 @@ def nKey(key, sizeW):
     return nKey
 
 
-archivo = input("ingrese el nombre del archivo: ")
-#archivo = "testCifrar.txt"
+def frecuencias(text):
+    freq = {}
+    alpha = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+    for i in range(len(alpha)):
+        frecuenc = text.count(alpha[i])
+        freq[alpha[i]] = frecuenc
+
+
+    # Imprimir la tabla de frecuencias
+    for letra, frecuencia in freq.items():
+        print(f"Letra '{letra}': {frecuencia} veces")
+
+
+#archivo = input("ingrese el nombre del archivo: ")
+archivo = "testCifrar.txt"
 try:
     file = open(archivo, 'r')
     #contRaw = file.read()
     cont = file.read()
     contUpp = cont.upper()
 
-    alpha = input("seleccione (1) para cifrar en alfabeto de 27 o (2) para cifrar en alfabeto de 191: ")
-    #alpha = "1"
+    #alpha = input("seleccione (1) para cifrar en alfabeto de 27 o (2) para cifrar en alfabeto de 191: ")
+    alpha = "1"
 
     key = input("ingresa la clave: ").upper()
     #key = "MEZCLADOR"
@@ -75,8 +88,9 @@ try:
             tProc = preProcAlpha(contUpp)
             nkey = nKey(key, len(tProc))
             print(tProc)
-
-            print(ciphVS(nkey, tProc))
+            txtCipher = ciphVS(nkey, tProc)
+            print(txtCipher)
+            frecuencias(txtCipher)
 
         case "2":
 
@@ -86,9 +100,10 @@ try:
             print(nkey)
 
             print(ciphASCII(nkey, tProc))
+
         case _:
             print("ingrese un numero valido")
 
-
+    file.close()
 except FileNotFoundError:
     print("El archivo no existe")
