@@ -64,7 +64,6 @@ def frecuencias(text):
         frecuenc = text.count(alpha[i])
         freq[alpha[i]] = frecuenc
 
-
     # Imprimir la tabla de frecuencias
     for letra, frecuencia in freq.items():
         print(f"Letra '{letra}': {frecuencia} veces")
