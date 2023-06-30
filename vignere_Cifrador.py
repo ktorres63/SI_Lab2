@@ -57,8 +57,8 @@ def nKey(key, sizeW):
     return nKey
 
 
-# archivo = input("ingrese el nombre del archivo: ")
-archivo = "testCifrar.txt"
+archivo = input("ingrese el nombre del archivo: ")
+#archivo = "testCifrar.txt"
 try:
     file = open(archivo, 'r')
     #contRaw = file.read()
@@ -68,11 +68,11 @@ try:
     alpha = input("seleccione (1) para cifrar en alfabeto de 27 o (2) para cifrar en alfabeto de 191: ")
     #alpha = "1"
 
-    # key = input("ingresa la clave: ").upper()
-    key = "MEZCLADOR"
+    key = input("ingresa la clave: ").upper()
+    #key = "MEZCLADOR"
     match alpha:
         case "1":  # 27 letras
-            print(cont)
+            print(contUpp)
             tProc = preProcAlpha(contUpp)
             nkey = nKey(key, len(tProc))
 
