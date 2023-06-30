@@ -72,9 +72,9 @@ try:
     #key = "MEZCLADOR"
     match alpha:
         case "1":  # 27 letras
-            print(contUpp)
             tProc = preProcAlpha(contUpp)
             nkey = nKey(key, len(tProc))
+            print(tProc)
 
             print(ciphVS(nkey, tProc))
 
